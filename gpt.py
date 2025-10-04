@@ -4,15 +4,15 @@ import pygame
 pygame.init()
 
 # Configuración de ventana
-ANCHO, ALTO = 600, 400
+ancho, alto = 600, 400
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 pygame.display.set_caption("Juego con misiones")
 
 # Colores
-BLANCO = (255, 255, 255)
-AZUL = (0, 0, 255)
-VERDE = (0, 200, 0)
-AMARILLO = (255, 255, 0)
+blanco = (255, 255, 255)
+azul = (0, 0, 255)
+verde = (0, 200, 0)
+amarillo = (255, 255, 0)
 
 # Jugador
 jugador = pygame.Rect(50, 50, 40, 40)
@@ -20,6 +20,9 @@ velocidad = 5
 
 # NPC
 npc = pygame.Rect(300, 200, 40, 40)
+
+#Imagen de la estrella
+img_estrella = pygame.image.load("star.png")
 
 # Objeto de misión (estrella)
 estrella = pygame.Rect(500, 300, 30, 30)
@@ -56,13 +59,13 @@ while ejecutando:
         mision_activa = False
 
     # Dibujar en pantalla
-    ventana.fill(BLANCO)
-    pygame.draw.rect(ventana, AZUL, jugador)   # jugador
-    pygame.draw.rect(ventana, VERDE, npc)      # npc
+    ventana.fill(blanco)
+    pygame.draw.rect(ventana, azul, jugador)   # jugador
+    pygame.draw.rect(ventana, verde, npc)      # npc
 
     # Mostrar estrella solo si la misión está activa
     if mostrar_estrella:
-        pygame.draw.rect(ventana, AMARILLO, estrella)
+        pygame.surface.blit(ventana, star, (100, 300))
 
     # Mostrar estado de misión
     if mision_completada:
@@ -77,5 +80,6 @@ while ejecutando:
     # Actualizar pantalla
     pygame.display.flip()
     pygame.time.Clock().tick(30)
+
 
 pygame.quit()
