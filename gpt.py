@@ -89,7 +89,7 @@ while ejecutando:
 
     #Mostrar estrellas
     for objeto in objetos:
-        pygame.Surface.blit(ventana, objeto, (objeto.x + 12, objeto.y) + 12100, 300))
+        pygame.Surface.blit(ventana, objeto, (objeto.x + 12, objeto.y + 12))
 
     # Mostrar estado de misión
     if mision_completada:
@@ -107,4 +107,5 @@ while ejecutando:
 
 
 pygame.quit()
+
 
